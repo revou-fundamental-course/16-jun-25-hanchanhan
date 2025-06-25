@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+  <title>Calculator</title>
+ <style>
+    button {
+        width: 100%;
+    }
+
+
+
+ </style>
+
+ <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+</head>
+<body>
+
+    <h1 style="font-size: 300%;">LET'S PRACTICE</h1>
+  
+  <form id = "calculator">    
+    <table>
+        <tr>
+            <td colspan = "4"><input type="text" readonly id = "display"></input></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><button type="button" id="All Clear" onclick="clearDisplay()">AC</button></td>
+            <td><button type="button" id="Clear" onclick="deleteLast()">C</button></td>
+            <td><button type="button" id="All Clear" onclick="appendOperator('*')">*</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" id="Input 7" onclick="appendNumber('7')">7</button></td>
+            <td><button type="button" id="Input 8" onclick="appendNumber('8')">8</button></td>
+            <td><button type="button" id="Input 9" onclick="appendNumber('9')">9</button></td>
+            <td><button type="button" id="Operation Multiply" onclick="appendNumber('/')">/</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" id="Input 4" onclick="appendNumber('4')">4</button></td>
+            <td><button type="button" id="Input 5" onclick="appendNumber('5')">5</button></td>
+            <td><button type="button" id="Input 6" onclick="appendNumber('6')">6</button></td>
+            <td><button type="button" id="Operation Addition" onclick="appendOperator('+')">+</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" id="Input 1" onclick="appendNumber('1')">1</button></td>
+            <td><button type="button" id="Input 2" onclick="appendNumber('2')">2</button></td>
+            <td><button type="button" id="Input 3" onclick="appendNumber('3')">3</button></td>
+            <td><button type="button" id="Operation Substraction" onclick="appendOperator('-')">-</button></td>
+        </tr>
+
+        <tr>
+            <td><button type="button" id="Toggle + -" onclick="toggleSign()">+/-</button></td>
+            <td><button type="button" id="Input 0" onclick="appendNumber('0')">0</button></td>
+            <td><button type="button" id="Dot" onclick="appendDot('.')">.</button></td>
+            <td><button type="button" id="Calculate" onclick="calculate()">=</button></td>
+    </table>
+  </form>
+    
+<script>    
+const display = document.getElementById('display');
+
+function appendNumber(number) {
+    display.value += number;
+}   
+function appendOperator(operator) {
+    const lastChar = display.value[display.value.length - 1];
+    if (lastChar !== operator && !['+', '-', '*', '/'].includes(lastChar)) {
+        display.value += operator;
+    }
+}
+
+function appendDot(dot) {
+    const lastNumber = display.value.split(/[\+\-\*\/]/).pop();
+    if (!lastNumber.includes(dot)) {
+        display.value += dot;
+    }
+}
+
+function clearDisplay() {
+    display.value = '';
+}
+
+function deleteLast() {
+    display.value = display.value.slice(0, -1);
+}
+
+function toggleSign() {
+    const lastNumber = display.value.split(/[\+\-\*\/]/).pop();
+    if (lastNumber) {
+        if (lastNumber.startsWith('-')) {
+            display.value = display.value.slice(0, -lastNumber.length) + lastNumber.slice(1);
+        } else {
+            display.value = display.value.slice(0, -lastNumber.length) + '-' + lastNumber;
+        }
+    }
+}
+
+function calculate() {
+    try {
+        const result = eval(display.value);
+        display.value = result;
+    } catch (error) {
+        display.value = 'Error';
+    }   
+}
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

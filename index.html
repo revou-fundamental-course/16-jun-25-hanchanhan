@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FILE STORAGE</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0%;
+      padding: 1%;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background-color: azure;
+    }
+
+    .container {
+     
+      height: 40%;
+      width: 100%;
+      
+     
+      
+  
+    }
+
+    .column {
+      
+      display: flex;
+      border: 2px solid #ccc;
+    }
+
+    .column:last-child {
+      border-right: none;
+    }
+
+    .column:nth-child(1) {
+      background-color: #fde68a;
+    }
+
+    .column:nth-child(2) {
+      background-color: #bbf7d0;
+    }
+
+    .column:nth-child(3) {
+      background-color: #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center;">
+  <h1 style="font-size: 200%;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;";>Welcome to File Storage</h1>
+  <p style="padding-top: 1%;font-size:130%;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">This is a simple File storage application.</p>
+  <p>To get started, please upload your Files.</p>
+  </div>
+
+
+<div class="container">
+
+  <span class="column">
+  <div style="text-align: center;padding-left: 15%; padding-right: 15%;">
+
+  <h2>Upload Images</h2>
+
+  <div>
+    <form action="http://192.168.1.20:3000/upload" method="post" enctype="multipart/form-data">
+       <br>
+       <br>
+       <br>
+       <br>
+    <input type="file" name="photos" accept="image/*" multiple required;style="margin-bottom: 10px"; text-align: center;>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <button type="submit" >Upload Images</button>
+    </form>
+   </div>
+    </div>
+    </span>
+
+
+
+  <span class="column">
+  <div style="text-align: center;padding-left: 15%; padding-right: 15%;">
+
+  <h2>Upload Videos</h2>
+
+  <div text-align: center;>
+    <form action="http://192.168.1.20:3000/upload" method="post" enctype="multipart/form-data">
+       <br>
+       <br>
+       <br>
+       <br>
+    <input type="file" name="videos" accept="video/*" multiple required;style="margin-bottom: 10px"; text-align: center;>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <button type="submit" >Upload Videos</button>
+    </form>
+   </div>
+    </div>
+    </span>
+
+  <span class="column">
+  <div style="text-align: center;padding-left: 15%; padding-right: 15%;">
+
+  <h2>Upload Documents</h2>
+
+  <div text-align: center; padding ; 5%;>
+    <form action="http://192.168.1.20:3000/upload" method="post" enctype="multipart/form-data">
+       <br>
+       <br>
+       <br>
+       <br>
+    <input type="file" name="documents" accept=".xlsx,.pdf,.doc,.docx,.txt" multiple required;style="margin-bottom: 10px"; text-align: center;>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    <button type="submit" >Upload Documents</button>
+    </form>
+   </div>
+    </div>
+    </span>
+  </body> 
+
+</html>
